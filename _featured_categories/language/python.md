@@ -1,9 +1,9 @@
 ---
 layout: post
-category: docs
-title: Java
+category: language
+title: Python
 description: >
-  공부한 것들을 정리합니다.
+  Python
 related_posts:
   - 
 addons:

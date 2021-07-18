@@ -1,9 +1,9 @@
 ---
 layout: post
-category: algorithm
-title: Theory
+category: life
+title: Journal
 description: >
-  알고리즘 이론 모음
+  일상에 대한 기록입니다.
 related_posts:
   - 
 addons:
@@ -11,3 +11,4 @@ addons:
   - comments
 list: true
 ---
+<!-- blank -->

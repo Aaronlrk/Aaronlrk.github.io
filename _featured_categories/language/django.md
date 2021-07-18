@@ -1,9 +1,9 @@
 ---
 layout: post
-category: log
-title: Book
+category: language
+title: Django
 description: >
-  책 보며 공부한 내용을 정리합니다.
+  Django
 related_posts:
   - 
 addons:
@@ -11,4 +11,3 @@ addons:
   - comments
 list: true
 ---
-<!-- blank -->

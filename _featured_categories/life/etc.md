@@ -1,9 +1,9 @@
 ---
 layout: post
-category: docs
-title: Spring
+category: life
+title: Etc
 description: >
-  공부한 것들을 정리합니다.
+  카테고리에 속하지 못하는 것들
 related_posts:
   - 
 addons:
@@ -11,3 +11,7 @@ addons:
   - comments
 list: true
 ---
+<!-- blank -->
+
+
+   

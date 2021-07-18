@@ -31,10 +31,33 @@
 
 # Build settings
 theme: minima
+exclude:
+  - .jekyll-cache
+  - .sass-cache
+  - vendor
+  - Gemfile
+  - Gemfile.lock
+include:
+  - .well-known
+  - LICENSE.md
+
+
+# Plugins
+# ----------------------------------------------------------------------------------------
+
 plugins:
+  - jekyll-default-layout
   - jekyll-feed
-  - jekyll-include-cache
+  - jekyll-optional-front-matter
   - jekyll-paginate
+  - jekyll-readme-index
+  - jekyll-redirect-from
+  - jekyll-relative-links
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-titles-from-headings
+  - jekyll-include-cache
+  - jekyll-last-modified-at
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -86,9 +109,10 @@ description:           >
 
 logo : /assets/img/me.png
 
-tagline:               >
+tagline:   >
  개발에 철학을 담아서 
-                                       ![Python](https://img.shields.io/badge/-Python-informational)
+
+ ![Python](https://img.shields.io/badge/-Python-informational)
                 
 
 
@@ -107,31 +131,33 @@ keywords : []
 menu:
   - title:             Project
     url:               /project/
-  - title:             Docs
-    url:               /docs/
+  - title:             Language
+    url:               /language/
     submenu:           
-      - title:           Java
-        url:             /java/
-      - title:           Spring
-        url:             /spring/
-      - title:           Computer Science
-        url:             /computer-science/
-  - title:             Algorithm
-    url:               /algorithm/
+      - title:           Python
+        url:             /python/
+      - title:           Django
+        url:             /django/
+      # - title:           Computer Science
+      #   url:             /computer-science/
+  - title:             Theory
+    url:               /theory/
     submenu:
-      - title:           Theory
-        url:             /theory/
+      - title:           Algorithm
+        url:             /algorithm/
+      - title:           CS
+        url:             /cs/
       - title:           Problem Solving
         url:             /problem-solving/
-  - title:             Log
-    url:               /log/
+  - title:             Life
+    url:               /life/
     submenu:
       - title:           Develop
         url:             /develop/
-      - title:           Book
-        url:             /book/
-      - title:           Guitar
-        url:             /guitar/
+      - title:           Journal
+        url:             /journal/
+      - title:           Etc
+        url:             /etc/
   - title:             About
     url:               /about/
 
@@ -147,6 +173,80 @@ legal:
     url:               /NOTICE/
   - title:             CHANGELOG
     url:               /CHANGELOG/
+
+
+defaults:
+  # You can use this to provide a default accent color and background for
+  # all pages under a given path:
+  - scope:
+      path:            hyde/
+    values:
+      accent_color:    rgb(38,139,210)
+      accent_image:
+        background:    rgb(32,32,32)
+        overlay:       false
+
+  # Don't include documents in assets in the sitemap
+  - scope:
+      path:            assets/
+    values:
+      sitemap:         false
+
+  # Don't include licenses in sitemap (feel free to delete)
+  - scope:
+      path:            licenses/
+    values:
+      sitemap:         false
+
+  # # You can use the following to enable comments on all posts.
+  - scope:
+      type:            posts
+    values:
+      comments:        true
+
+  # `jekyll-seo-tag` will mark collection outputs as `BlogPosting`,
+  # but we want them to be `WebPage`s:
+  - scope:
+      type:            projects
+    values:
+      seo:
+        type:          WebPage
+  - scope:
+      type:            featured_categories
+    values:
+      seo:
+        type:          WebPage
+  - scope:
+      type:            featured_tags
+    values:
+      seo:
+        type:          WebPage
+
+# Plugin Configs
+# ---------------------------------------------------------------------------------------
+optional_front_matter:
+  remove_originals:    true
+
+readme_index:
+  remove_originals:    true
+  with_frontmatter:    true
+
+relative_links:
+  collections:         true
+
+titles_from_headings:
+  strip_title:         true
+  collections:         true
+
+compress_html:
+  comments:            ["<!-- ", " -->"]
+  clippings:           all
+  endings:             all
+  ignore:
+    envs:              [development]
+
+sass:
+  style:               compressed
 
 # Format of the permalinks
 permalink:            /:categories/:year-:month-:day-:title/

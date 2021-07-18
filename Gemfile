@@ -32,3 +32,12 @@ gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
 
 gem "webrick", "~> 1.7"
 gem "jekyll-paginate", "~> 1.1.0"  # 추가
+gem "jekyll-default-layout"
+gem "jekyll-optional-front-matter"
+gem "jekyll-readme-index"
+gem "jekyll-redirect-from"
+gem "jekyll-relative-links"
+gem "jekyll-seo-tag"
+gem "jekyll-sitemap"
+gem "jekyll-titles-from-headings"
+gem "jekyll-last-modified-at"
