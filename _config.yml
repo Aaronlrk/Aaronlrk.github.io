@@ -149,15 +149,24 @@ legal:
     url:               /CHANGELOG/
 
 # Format of the permalinks
-permalink:            none
+permalink:            /:categories/:year-:month-:day-:title/
 
 paginate:              10
-paginate_path:         /page-:num/
-excerpt_separator:     <!--more-->
+paginate_path:         /:num/
 
+collections:
+  featured_categories:
+    permalink:         /:name/
+    output:            true
 
-category_dir : category/
-tag_dir : tag/
+  featured_tags:
+    permalink:         /:name/
+    output:            true
+
+  projects:
+    permalink:         /projects/:path/
+    output:            true
+
 
 hydejack:
   post_addons:         [about, newsletter, related, random, comments]
