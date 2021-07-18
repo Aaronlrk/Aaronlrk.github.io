@@ -54,8 +54,8 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
-lang:                  en
-title:                 Dev+
+lang:                  ko-KR, en-US
+title:                 Dev+Philosophy
 copyright:             © 2021. All rights reserved.
 
 accent_image:          /assets/img/sidebar-bg.jpg
@@ -67,6 +67,44 @@ font:                  Noto Sans, Helvetica, Arial, sans-serif
 font_heading:          Roboto Slab, Helvetica, Arial, sans-serif
 font-code:             ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
+description:           >
+  Hydejack is a boutique Jekyll theme for hackers, nerds, and academics,
+  with a focus on personal sites that are meant to impress.
+
+tagline:               >
+ 개발에 철학을 담아서 
+                                       ![Python](https://img.shields.io/badge/-Python-informational)
+                        
+
+keywords : []
+# Add links to the sidebar.
+
+menu:
+  - title:             About
+    url:               /example/
+  - title:             Study
+    url:               /docs/
+  - title:             Project
+    url:               /about/
+
+
+# Add links to the footer.
+# Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..
+legal:
+  - title:             LICENSE
+    url:               /LICENSE/
+  - title:             NOTICE
+    url:               /NOTICE/
+  - title:             CHANGELOG
+    url:               /CHANGELOG/
+
+# Format of the permalinks
+permalink:             /:categories/:year-:month-:day-:title/
+
+authors :
+  name : <Ryunki><Lee>
+  email : Aaronryun@gmail.com
+  
 hydejack:
   post_addons:         [about, newsletter, related, random, comments]
   project_addons:      [about, newsletter, other, comments]
