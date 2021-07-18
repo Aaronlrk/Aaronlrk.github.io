@@ -3,15 +3,40 @@
   {% if site.menu %}
     {% for node in site.menu %}
       {% assign url = node.url | default: node.href %}
+      {% assign count = count | plus: 1 %}
       <li>
-        <a
-          {% if forloop.first %}id="_drawer--opened"{% endif %}
-          href="{% include_cached smart-url url=url %}"
-          class="sidebar-nav-item {% if node.external  %}external{% endif %}"
-          {% if node.rel %}rel="{{ node.rel }}"{% endif %}
-        >
+        <div class="menu-wrapper">
+          {% if node.submenu %}
+            <button class="spread-btn" onclick="javascript:spread({{count}})">
+              <span id="spread-icon-{{count}}" class="material-icons">arrow_right</span>
+            </button>
+          {% endif %}
+          <a
+           {% if forloop.first %}id="_drawer--opened"{% endif %}
+           href="{% include_cached smart-url url=url %}"
+           class="sidebar-nav-item {% if node.external  %}external{% endif %}"
+           {% if node.rel %}rel="{{ node.rel }}"{% endif %}
+           >
           {{ node.name | default:node.title }}
         </a>
+       </div>
+       {% if node.submenu %}
+        <div class="menu-wrapper">
+          <input type="checkbox" id="folder-checkbox-{{count}}">
+          <ul>
+          {% for subnode in node.submenu %}
+            <li>
+              <a
+                class="sidebar-nav-item {% if node.external  %}external{% endif %}"
+                href="{% include_cached smart-url url=subnode.url %}"
+                >
+                {{ subnode.title }}
+              </a>
+            </li>
+          {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
       </li>
     {% endfor %}
   {% else %}
@@ -39,3 +64,39 @@
     {% endfor %}
   {% endif %}
 </ul>
+
+
+
+<!-- 복수의 메뉴 각각을 식별하기 위한 인덱스 -->
+{% assign count = count | plus: 1 %}
+<li>
+  <div class="menu-wrapper">
+    <!-- submenu 변수는 아래 _config.yml 에서 추가합니다 -->
+    {% if node.submenu %}
+      <!-- spread 함수는 js 파일로 작성하고 my-head.html에 추가합니다 -->
+      <!-- spread-btn class는 my-style.scss에 추가합니다. -->
+      <button class="spread-btn" onclick="javascript:spread({{count}})">
+        <!-- marterial stylesheet를 my-head.html에 추가합니다 -->
+        <span id="spread-icon-{{count}}" 
+        class="material-icons">arrow_right</span>
+      </button>
+    {% endif %}
+
+    {% if node.submenu %}
+    <div class="menu-wrapper">
+      <!-- 접힘/펼침 여부를 체크박스로 관리합니다 -->
+      <input type="checkbox" id="folder-checkbox-{{count}}">
+      <ul>
+        {% for subnode in node.submenu %}
+          <li>
+            <a
+              class="sidebar-nav-item {% if node.external  %}external{% endif %}"
+              href="{% include_cached smart-url url=subnode.url %}"
+              >
+              {{ subnode.title }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}

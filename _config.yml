@@ -34,6 +34,7 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-include-cache
+  - jekyll-paginate
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -54,9 +55,42 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+# Config
+# ========================================================================================
+
+# Uncomment and set the URL of your site (with protocol, e.g. `https://`)
+# NOTE: You don't need to provide this property when hosting on GitHub Pages or Netlify.
+url:                   https://aaronlrk.github.io
+# Uncomment and set the "base URL" of your site.
+# When your site is in a subdirectory, set to `/<name of directory>`,
+# with a leading `/` but no trailing `/`. Use the empty string '' otherwise.
+# NOTE: You don't need to provide this property when hosting on GitHub Pages or Netlify.
+# baseurl:               '/hydejack-starter-kit'
+
+# General settings
+# ---------------------------------------------------------------------------------------
+
+# Language of your content in 2-letter code, e.g.: en, de.
+# You may also provide a location, e.g.: en-us, de_AT.
 lang:                  ko-KR, en-US
+
+# The title of your blog. Used in the sidebar and the browser tab.
 title:                 Dev+Philosophy
-copyright:             © 2021. All rights reserved.
+
+# A short description (~150 chars) of the page used for the meta description tag.
+# Can use markdown, but no more than one paragraph (enforced by `>`)
+description:           >
+  Work Hard
+
+# A shorter description for the sidebar.
+
+logo : /assets/img/me.png
+
+tagline:               >
+ 개발에 철학을 담아서 
+                                       ![Python](https://img.shields.io/badge/-Python-informational)
+                
+
 
 accent_image:          /assets/img/sidebar-bg.jpg
 accent_color:          rgb(79,177,186)
@@ -67,44 +101,64 @@ font:                  Noto Sans, Helvetica, Arial, sans-serif
 font_heading:          Roboto Slab, Helvetica, Arial, sans-serif
 font-code:             ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
-description:           >
-  Hydejack is a boutique Jekyll theme for hackers, nerds, and academics,
-  with a focus on personal sites that are meant to impress.
-
-tagline:               >
- 개발에 철학을 담아서 
-                                       ![Python](https://img.shields.io/badge/-Python-informational)
-                        
 
 keywords : []
 # Add links to the sidebar.
-
 menu:
-  - title:             About
-    url:               /example/
-  - title:             Study
-    url:               /docs/
   - title:             Project
+    url:               /project/
+  - title:             Docs
+    url:               /docs/
+    submenu:           
+      - title:           Java
+        url:             /java/
+      - title:           Spring
+        url:             /spring/
+      - title:           Computer Science
+        url:             /computer-science/
+  - title:             Algorithm
+    url:               /algorithm/
+    submenu:
+      - title:           Theory
+        url:             /theory/
+      - title:           Problem Solving
+        url:             /problem-solving/
+  - title:             Log
+    url:               /log/
+    submenu:
+      - title:           Develop
+        url:             /develop/
+      - title:           Book
+        url:             /book/
+      - title:           Guitar
+        url:             /guitar/
+  - title:             About
     url:               /about/
 
+paginate:              10
+paginate_path:         /:num/
 
 # Add links to the footer.
 # Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..
 legal:
   - title:             LICENSE
-    url:               /LICENSE/
+    url:               /README/
   - title:             NOTICE
     url:               /NOTICE/
   - title:             CHANGELOG
     url:               /CHANGELOG/
 
 # Format of the permalinks
-permalink:             /:categories/:year-:month-:day-:title/
+permalink:            none
 
-authors :
-  name : <Ryunki><Lee>
-  email : Aaronryun@gmail.com
-  
+paginate:              10
+paginate_path:         /page-:num/
+excerpt_separator:     <!--more-->
+
+
+category_dir : category/
+tag_dir : tag/
+
 hydejack:
   post_addons:         [about, newsletter, related, random, comments]
   project_addons:      [about, newsletter, other, comments]
