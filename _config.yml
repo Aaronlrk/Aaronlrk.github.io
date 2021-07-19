@@ -256,7 +256,7 @@ paginate_path:         /:num/
 
 collections:
   featured_categories:
-    permalink:         /:name/
+    permalink:         /:name/  
     output:            true
 
   featured_tags:
